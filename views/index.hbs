@@ -1,0 +1,42 @@
+<div class="m-3">
+<table class="table table-bordered table-striped">
+  <thead>
+    <tr class="row">
+      <th class="col-4">Id</th>
+      <th class="col-2">UserName</th>
+      <th class="col-3">Email</th>
+      <th class="col-3">Profile Image</th>
+    </tr>
+  </thead>
+  <tbody>
+      {{# each users}}
+    <tr class="row">
+      <td class="col-4" >{{this.user_id}}</td>
+      <td class="col-2" >{{#if this.user_name}}
+          {{this.user_name}}
+          {{else}}
+          NULL
+        {{/if}}        
+      </td>
+      <td class="col-3" >{{#if this.user_email}}
+          {{this.user_email}}
+          {{else}}
+          NULL
+        {{/if}}        
+      </td>
+      <td class="col-3" >
+        {{#if this.image_url}}
+          <a href="{{this.image_url}}">
+            <img src="{{this.image_url}}" height="80"/>
+          </a>
+          {{!-- <a href="{{this.image_url}}">Image</a> --}}
+          {{else}}
+          NULL
+        {{/if}} 
+      </td>
+    </tr>
+    {{/each}}
+    
+  </tbody>
+</table>
+</div>

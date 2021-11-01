@@ -1,3 +1,4 @@
+const { STRING } = require("sequelize");
 const Sequelize = require("sequelize");
 
 const db = require("../config/database");
@@ -10,15 +11,11 @@ const User = db.define("user", {
     primaryKey: true,
   },
   user_name: { type: Sequelize.STRING },
-  user_email: { type: Sequelize.STRING },
+  user_email: { type: Sequelize.STRING, unique: true },
   user_password: { type: Sequelize.STRING },
-  user_image: {
-    type: { type: Sequelize.STRING },
-    name: { type: Sequelize.STRING },
-    data: { type: Sequelize.BLOB("long") },
-  },
-  total_orders: { type: Sequelize.INTEGER },
-  created_at: { type: Sequelize.DATE, default: Date.now },
-  last_logged_in: { type: Sequelize.STRING },
+  user_image: { type: Sequelize.STRING },
+  total_orders: { type: Sequelize.INTEGER, defaultValue: 0 },
+  created_at: { type: Sequelize.DATE, defaultValue: Date.now },
+  last_logged_in: { type: Sequelize.DATE, defaultValue: Date.now },
 });
 module.exports = User;

@@ -1,14 +1,8 @@
 const Sequelize = require("sequelize");
 
-var db = new Sequelize("myFirstDb", "root", "rahuljalan", {
-  host: "localhost",
-  dialect: "mysql",
-
-  pool: {
-    max: 5,
-    min: 0,
-    idle: 10000,
-  },
+var db = new Sequelize({
+  dialect: "sqlite",
+  storage: "data.sqlite3",
 });
 
 db.authenticate()
@@ -16,5 +10,5 @@ db.authenticate()
   .catch((err) => {
     console.log(err);
   });
-
+db.sync();
 module.exports = db;
