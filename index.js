@@ -30,7 +30,7 @@ app.get("/", (req, res) => {
       // console.log(users);
       users.map((user) => {
         if (user.user_image) {
-          user.image_url = `http://${host}:${4000}/static/assets/uploads/${
+          user.image_url = `http://${host}:${PORT}/static/assets/uploads/${
             JSON.parse(user.user_image).name
           }`;
         } else {
