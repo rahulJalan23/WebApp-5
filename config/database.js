@@ -10,5 +10,5 @@ db.authenticate()
   .catch((err) => {
     console.log(err);
   });
-db.sync();
+// db.sync();
 module.exports = db;
